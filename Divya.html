@@ -1,0 +1,673 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Educational Platform</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, sans-serif;
+            scroll-behavior: smooth;
+        }
+        body {
+            background-color: #f5f5f5;
+            text-align: center;
+        }
+        nav {
+            background-color: #333;
+            padding: 15px 0;
+            text-align: center;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            left: 0;
+            z-index: 1000;
+            transition: background 0.3s;
+        }
+        
+        nav a {
+            color: white;
+            text-decoration: none;
+            margin: 0 15px;
+            font-size: 18px;
+            font-weight: bold;
+            transition: 0.3s;
+        }
+        nav a:hover {
+            color: #ffcc00;
+        }
+        .teachers {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 20px;
+            padding: 100px 20px 50px;
+        }
+        .teacher-card {
+            background: white;
+            border-radius: 10px;
+            padding: 20px;
+            text-align: center;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+            width: 220px;
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+        .teacher-card:hover {
+            transform: scale(1.05);
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
+        }
+        .teacher-card img {
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 4px solid #333;
+        }
+        .teacher-card h3 {
+            margin-top: 10px;
+            color: #333;
+        }
+        .section {
+            padding: 100px 50px;
+        }
+        button {
+            padding: 10px 20px;
+            background-color: #333;
+            color: white;
+            border: none;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+        button:hover {
+            background-color: #ffcc00;
+            color: #333;
+        }
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+        }
+        header {
+            background-color: #ff6600;
+            color: white;
+            text-align: center;
+            padding: 30px;
+            margin:20px;
+            font-size: 40px;
+            font-weight: bold;
+            box-shadow: 20px 4px 10px rgba(0, 0, 0, 0.3);
+        }
+        .container {
+            width: 80%;
+            margin: auto;
+            padding: 20px;
+            background: white;
+            box-shadow: 0px 0px 15px rgba(0,0,0,0.2);
+            border-radius: 10px;
+            margin-top: 20px;
+        }
+        h2 {
+            color: #ff6600;
+            text-align: center;
+            text-shadow: 2px 2px 5px rgba(0,0,0,0.2);
+        }
+        p {
+            font-size: 18px;
+            line-height: 1.8;
+            text-align: justify;
+        }
+        .contact {
+            text-align: center;
+            margin-top: 20px;
+            font-size: 20px;
+            font-weight: bold;
+        }
+        .contact a {
+            color: #ff6600;
+            text-decoration: none;
+        }
+        .features, .about, .vision {
+            padding: 15px;
+            background: #fff3e6;
+            border-radius: 10px;
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+            margin-top: 20px;
+        }
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+            background-color: #f4f4f4;
+        }
+        .container {
+            max-width: 900px;
+            margin: auto;
+            background-color: white;
+            padding: 20px;
+            box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+            border-radius: 10px;
+        }
+        h2 {
+            text-align: center;
+            color: #4CAF50;
+            margin-bottom: 30px;
+        }
+        .box {
+            border: 2px solid #4CAF50;
+            padding: 20px;
+            margin-bottom: 20px;
+            border-radius: 8px;
+            box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+            background-color: #ffffff;
+        }
+        .box h3 {
+            text-align: center;
+            color: #4CAF50;
+        }
+        .subject {
+            margin-top: 10px;
+        }
+        .subject h4 {
+            color: #333;
+            margin-bottom: 10px;
+        }
+        .subject h5 {
+            color: #555;
+            margin-bottom: 5px;
+        }
+        .download-btn {
+            background-color: #4CAF50;
+            color: white;
+            padding: 10px 20px;
+            text-decoration: none;
+            border-radius: 5px;
+            display: inline-block;
+            margin-bottom: 10px;
+            box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
+        }
+        .download-btn:hover {
+            background-color: #45a049;
+            box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.2);
+        }
+        .download-btn:active {
+            background-color: #388e3c;
+            box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.2);
+        }
+        /* Image Slider */
+.slider-container {
+    width: 80%;
+    max-width: 800px;
+    overflow: hidden;
+    margin: 100px auto;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+    position: relative;
+    padding: 0%;
+   /* margin-right: 5px; */
+   align-items: center;
+}
+.slider {
+    display: flex;
+    transition: transform 1s ease-in-out;
+}
+.slide {
+    min-width: 100%;
+    border-radius: 10px;
+    overflow: auto;
+
+}
+.slide img {
+    width: 100%;
+    height: 400px;
+    object-fit: cover;
+}
+.btn {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: rgba(0, 0, 0, 0.5);
+    color: white;
+    border: none;
+    padding: 10px 15px;
+    cursor: pointer;
+    border-radius: 5px;
+    z-index: 100;
+}
+.prev { left: 10px; }
+.next { right: 10px; }
+#chat{
+    { margin: 0; font-family: Arial, sans-serif; }
+        #chatButton {
+            position: fixed; bottom: 20px; right: 20px;
+            padding: 15px 25px; background-color: #007bff;
+            color: white; border: none; border-radius: 25px;
+            cursor: pointer; box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+        }
+        #chatContainer {
+            position: fixed; bottom: 20px; right: 20px; width: 350px; height: 500px;
+            background-color: white; border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1); display: none;
+            flex-direction: column;
+        }
+        .chat-header {
+            padding: 15px; background-color: #007bff;
+            color: white; border-radius: 10px 10px 0 0;
+            display: flex; justify-content: space-between;
+            align-items: center;
+        }
+        #minimizeBtn { background: none; border: none; color: white; cursor: pointer; font-size: 1.2em; }
+        #chatMessages { flex: 1; padding: 15px; overflow-y: auto; background-color: #f8f9fa; }
+        .message {
+            margin-bottom: 10px; padding: 8px 12px; border-radius: 15px; max-width: 80%;
+        }
+        .user-message { background-color: #007bff; color: white; margin-left: auto; }
+        .bot-message { background-color: #e9ecef; color: black; margin-right: auto; }
+        #inputGroup {
+            padding: 15px; background-color: white;
+            display: flex; gap: 10px; border-top: 1px solid #dee2e6;
+        }
+        #userInput { flex: 1; padding: 10px; border: 1px solid #dee2e6; border-radius: 20px; outline: none; }
+        #sendBtn { padding: 10px 20px; background-color: #007bff; color: white; border: none; border-radius: 20px; cursor: pointer; }
+        #about{
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+        }
+        .container {
+            width: 90%;
+            max-width: 800px;
+            background: white;
+            padding: 20px;
+            box-shadow: 0px 10px 30px rgba(0, 0, 0, 0.2);
+            border-radius: 15px;
+            text-align: center;
+        }
+        h1, h2 {
+            color: #333;
+        }
+        ul {
+            list-style-type: none;
+            padding: 0;
+        }
+        li {
+            background: #ffcc00;
+            margin: 10px 0;
+            padding: 10px;
+            border-radius: 5px;
+            font-weight: bold;
+            box-shadow: 3px 3px 10px rgba(0, 0, 0, 0.2);
+        }
+        .contact {
+            margin-top: 20px;
+            font-size: 18px;
+            font-weight: bold;
+        }
+        .contact a {
+            text-decoration: none;
+            color: #007bff;
+        }
+
+
+    </style>
+</head>
+<body>
+    <nav id="navbar">
+        <a href="#home">Home</a>
+        <a href="#teachers">Teachers</a>
+        <a href="#notes">Notes</a>
+        <a href="#about">About Us</a>
+        <a href="#chat">Chat Boat</a>
+        <a href="#contact">Contact</a>
+        <!-- <a href="login.html">Login</a> -->
+    </nav>
+    <header>
+        📚 Divya Jyoti Coaching Centre 📚
+    </header>
+    <div class="slider-container">
+        
+        <div class="slider">
+            <div class="slide"><img src="2017.jpeg" alt="2017 Batch"></div>
+            <div class="slide"><img src="2019, 20.jpeg" alt="2019 & 2020 Batch"></div>
+            <div class="slide"><img src="2022.jpeg" alt="2022 Batch"></div>
+            <div class="slide"><img src="kalyani.png" alt="Kalyani 2025"></div>
+            <div class="slide"><img src="2024.jpeg" alt="2022 Batch"></div>
+            <div class="slide"><img src="20241.jpeg" alt="2024 10th Batch"></div>
+            <div class="slide"><img src="2024 12th.jpeg" alt="2024 12th Batch"></div>
+            <div class="slide"><img src="sarsti.jpeg" alt="Kalyani 2025"></div>
+        </div>
+        <button class="btn prev" onclick="prevSlide()">&#10094;</button>
+        <button class="btn next" onclick="nextSlide()">&#10095;</button>
+    </div>
+    <H2 style="text-align: center;">Our Teachers Members: </H2>
+ <section id="teachers" class="teachers"> 
+        <div class="teacher-card"><img src="Shamr ji.jpg" alt="Sharma Sir"><h3>Dir: Sharma Jee</h3></div>
+        <div class="teacher-card"><img src="Bhola.jpg" alt="Bhola Sir"><h3>Co-Dir: Bhola Jee</h3></div>
+        <div class="teacher-card"><img src="Rohit.jpg" alt="Rohit Sir"><h3>Rohit Sir</h3></div>
+        <div class="teacher-card"><img src="Sushil.jpg" alt="Sushil Sir"><h3>Sushil Sir</h3></div>
+        <div class="teacher-card"><img src="Raushan.jpg" alt="Raushan Sir"><h3>Raushan Sir</h3></div>
+        <div class="teacher-card"><img src="Adarsh.jpg" alt="Adarsh Sir"><h3>Adarsh Sir</h3></div>
+        <div class="teacher-card"><img src="deepak.jpg" alt="Deepak Sir"><h3>Deepak Sir</h3></div>
+        <div class="teacher-card"><img src="kanhaye.jpg" alt="Kanhaye Sir"><h3>Kanhaye Sir</h3></div>
+        <div class="teacher-card"><img src="Anil.jpg" alt="Anil Sir"><h3>Anil Sir</h3></div>
+        <div class="teacher-card"><img src="mukesh.jpg" alt="Mukesh Sir"><h3>Mukesh Sir</h3></div>
+        <div class="teacher-card"><img src="gussdu.jpg" alt="GUDDU  Sir"><h3>Guddu Sir </h3></div>
+        <div class="teacher-card"><img src="ranjeet.jpg" alt="ranjeet sIR "><h3>Ranjeet Sir</h3></div>
+    </section> 
+    <section id="home" class="section">
+        <div class="container">
+            <h2>सफलता की ओर एक सुनहरा कदम</h2>
+            <div class="about">
+                <p>
+                    दिव्य ज्योति कोचिंग सेंटर, पर्सौनी खिरोधर में स्थित, एक प्रतिष्ठित शिक्षण संस्थान है,
+                    जहाँ कक्षा <strong>1 से 12</strong> तक के छात्रों को उत्कृष्ट शिक्षा प्रदान की जाती है।
+                    विशेष रूप से <strong>10वीं  & 12वीं(आर्ट्स)</strong> के छात्रों को <strong>400+ अंक</strong> लाने के लिए मार्गदर्शन दिया जाता है।
+                </p>
+            </div>
+            <h2>हमारी विशेषताएँ</h2>
+            <div class="features">
+                <p>
+                    ✅ अनुभवी और योग्य शिक्षक <br>
+                    ✅ विषयों की गहराई से समझ <br>
+                    ✅ नियमित टेस्ट एवं प्रैक्टिस सेट <br>
+                    ✅ व्यक्तिगत मार्गदर्शन <br>
+                    ✅ स्मार्ट क्लास एवं डिजिटल लर्निंग सुविधा <br>
+                    ✅ छात्र-छात्राओं की प्रगति पर विशेष ध्यान <br>
+                    ✅ पाठ्यक्रम के अनुसार अपडेटेड अध्ययन सामग्री <br>
+                </p>
+            </div>
+            <h2>हमारा विजन</h2>
+            <div class="vision">
+                <p>
+                    हमारा उद्देश्य न केवल छात्रों को परीक्षा में अच्छे अंक दिलाना है, बल्कि उन्हें आत्मनिर्भर और आत्मविश्वासी बनाना भी है।
+                    हम छात्रों में तार्किक सोच, विश्लेषणात्मक क्षमता और व्यावहारिक ज्ञान को बढ़ावा देते हैं।
+                </p>
+            </div>
+            <div class="contact">
+                📍 स्थान: पर्सौनी खिरोधर, Dis: Sitammrhi , 843325 ,Bihar <br>
+                📞 संपर्क करें: <a href="tel:9931922883">9931922883</a>
+            </div>
+        </div>
+    </section>
+   
+    <!-- <section id="teachers" class="teachers"> 
+        <div class="teacher-card"><img src="Shamr ji.jpg" alt="Sharma Sir"><h3>Dir: Sharma Jee</h3></div>
+        <div class="teacher-card"><img src="Bhola.jpg" alt="Bhola Sir"><h3>Co-Dir: Bhola Jee</h3></div>
+        <div class="teacher-card"><img src="Rohit.jpg" alt="Rohit Sir"><h3>Rohit Sir</h3></div>
+        <div class="teacher-card"><img src="Sushil.jpg" alt="Sushil Sir"><h3>Sushil Sir</h3></div>
+        <div class="teacher-card"><img src="Raushan.jpg" alt="Raushan Sir"><h3>Raushan Sir</h3></div>
+        <div class="teacher-card"><img src="Adarsh.jpg" alt="Adarsh Sir"><h3>Adarsh Sir</h3></div>
+        <div class="teacher-card"><img src="deepak.jpg" alt="Deepak Sir"><h3>Deepak Sir</h3></div>
+        <div class="teacher-card"><img src="kanhaye.jpg" alt="Kanhaye Sir"><h3>Kanhaye Sir</h3></div>
+        <div class="teacher-card"><img src="Anil.jpg" alt="Anil Sir"><h3>Anil Sir</h3></div>
+        <div class="teacher-card"><img src="mukesh.jpg" alt="Mukesh Sir"><h3>Mukesh Sir</h3></div>
+        <div class="teacher-card"><img src="gussdu.jpg" alt="GUDDU  Sir"><h3>Guddu Sir </h3></div>
+        <div class="teacher-card"><img src="ranjeet.jpg" alt="ranjeet sIR "><h3>Ranjeet Sir</h3></div>
+    </section> -->
+    <section id="notes" class="section">
+        <h2>Download Notes</h2>
+        <div class="container">
+            <h2>शैक्षिक नोट्स (BSEB - हिंदी माध्यम)</h2>
+    
+            <!-- कक्षा 9 का बॉक्स -->
+            <div class="box">
+                <h3>कक्षा 9</h3>
+                <div class="subject">
+                    <h4>हिंदी</h4>
+                    <h5>यूनिट 1: कविता</h5>
+                    <a href="https://drive.google.com/file/d/1jcz5bkyYjRCC4WPJ_ArPPHD9LiwT2UON/view?usp=sharing.pdf" class="download-btn" download>कविता नोट्स डाउनलोड करें</a>
+                    <h5>यूनिट 2: निबंध</h5>
+                    <a href="path_to_notes/9th_hindi_essay.pdf" class="download-btn" download>निबंध नोट्स डाउनलोड करें</a>
+                </div>
+                <div class="subject">
+                    <h4>सामाजिक अध्ययन (SST)</h4>
+                    <h5>यूनिट 1: इतिहास</h5>
+                    <a href="path_to_notes/9th_history.pdf" class="download-btn" download>इतिहास नोट्स डाउनलोड करें</a>
+                    <h5>यूनिट 2: भूगोल</h5>
+                    <a href="path_to_notes/9th_geography.pdf" class="download-btn" download>भूगोल नोट्स डाउनलोड करें</a>
+                </div>
+                <div class="subject">
+                    <h4>विज्ञान</h4>
+                    <h5>यूनिट 1: गति</h5>
+                    <a href="https://docs.google.com/spreadsheets/d/1vi8w1wNDy-yH_i-87wL2q7hZ2ZTiuUnM2klXKLMAY_0/edit?usp=drive_link" class="download-btn" download>गति नोट्स डाउनलोड करें</a>
+                    <h5>यूनिट 2: पदार्थ</h5>
+                    <a href="path_to_notes/9th_matter.pdf" class="download-btn" download>पदार्थ नोट्स डाउनलोड करें</a>
+                </div>
+                <div class="subject">
+                    <h4>गणित</h4>
+                    <h5>यूनिट 1: रैखिक समीकरण</h5>
+                    <a href="path_to_notes/9th_linear_equations.pdf" class="download-btn" download>रैखिक समीकरण नोट्स डाउनलोड करें</a>
+                </div>
+            </div>
+    
+            <!-- कक्षा 10 का बॉक्स -->
+            <div class="box">
+                <h3>कक्षा 10</h3>
+                <div class="subject">
+                    <h4>हिंदी</h4>
+                    <h5>यूनिट 1: कविता</h5>
+                    <a href="path_to_notes/10th_hindi_poetry.pdf" class="download-btn" download>कविता नोट्स डाउनलोड करें</a>
+                    <h5>यूनिट 2: निबंध</h5>
+                    <a href="path_to_notes/10th_hindi_essay.pdf" class="download-btn" download>निबंध नोट्स डाउनलोड करें</a>
+                </div>
+                <div class="subject">
+                    <h4>सामाजिक अध्ययन (SST)</h4>
+                    <h5>यूनिट 1: इतिहास</h5>
+                    <a href="path_to_notes/10th_history.pdf" class="download-btn" download>इतिहास नोट्स डाउनलोड करें</a>
+                    <h5>यूनिट 2: भूगोल</h5>
+                    <a href="path_to_notes/10th_geography.pdf" class="download-btn" download>भूगोल नोट्स डाउनलोड करें</a>
+                </div>
+                <div class="subject">
+                    <h4>विज्ञान</h4>
+                    <h5>यूनिट 1: रसायन शास्त्र</h5>
+                    <a href="path_to_notes/10th_chemistry.pdf" class="download-btn" download>रसायन शास्त्र नोट्स डाउनलोड करें</a>
+                    <h5>यूनिट 2: जीवविज्ञान</h5>
+                    <a href="path_to_notes/10th_biology.pdf" class="download-btn" download>जीवविज्ञान नोट्स डाउनलोड करें</a>
+                </div>
+                <div class="subject">
+                    <h4>गणित</h4>
+                    <h5>यूनिट 1: रैखिक समीकरण</h5>
+                    <a href="https://docs.google.com/document/d/10iJg0lMrrsjo7BU7Jc59B-nwQyIlAYJE/edit?usp=drive_link&ouid=117011407711635490183&rtpof=true&sd=true.pdf" class="download-btn" download>रैखिक समीकरण नोट्स डाउनलोड करें</a>
+                    <h5>यूनिट 2: ज्यामिति</h5>
+                    <a href="path_to_notes/10th_geometry.pdf" class="download-btn" download>ज्यामिति नोट्स डाउनलोड करें</a>
+                </div>
+            </div>
+    
+            <!-- कक्षा 12 का बॉक्स -->
+            <div class="box">
+                <h3>कक्षा 12</h3>
+                <div class="subject">
+                    <h4>हिंदी</h4>
+                    <h5>यूनिट 1: कविता</h5>
+                    <a href="path_to_notes/12th_hindi_poetry.pdf" class="download-btn" download>कविता नोट्स डाउनलोड करें</a>
+                    <h5>यूनिट 2: निबंध</h5>
+                    <a href="path_to_notes/12th_hindi_essay.pdf" class="download-btn" download>निबंध नोट्स डाउनलोड करें</a>
+                </div>
+                <div class="subject">
+                    <h4>सामाजिक अध्ययन (SST)</h4>
+                    <h5>यूनिट 1: इतिहास</h5>
+                    <a href="path_to_notes/12th_history.pdf" class="download-btn" download>इतिहास नोट्स डाउनलोड करें</a>
+                    <h5>यूनिट 2: भूगोल</h5>
+                    <a href="path_to_notes/12th_geography.pdf" class="download-btn" download>भूगोल नोट्स डाउनलोड करें</a>
+                </div>
+                <div class="subject">
+                    <h4>विज्ञान</h4>
+                    <h5>यूनिट 1: रसायन शास्त्र</h5>
+                    <a href="path_to_notes/12th_chemistry.pdf" class="download-btn" download>रसायन शास्त्र नोट्स डाउनलोड करें</a>
+                    <h5>यूनिट 2: जीवविज्ञान</h5>
+                    <a href="path_to_notes/12th_biology.pdf" class="download-btn" download>जीवविज्ञान नोट्स डाउनलोड करें</a>
+                </div>
+                <div class="subject">
+                    <h4>गणित</h4>
+                    <h5>यूनिट 1: रैखिक समीकरण</h5>
+                    <a href="path_to_notes/12th_linear_equations.pdf" class="download-btn" download>रैखिक समीकरण नोट्स डाउनलोड करें</a>
+                </div>
+            </div>
+    
+        </div>
+        <a href="notes.html"><button>Download Notes</button></a> 
+    </section>
+    <section id="about" class="section">
+         <h2>About Us</h2>
+         <div class="container">
+            <div class="container">
+                <h1>दिव्य ज्योति कोचिंग सेंटर</h1>
+                <p>दिव्य ज्योति कोचिंग सेंटर, पारसौनी खिरोघर में आपका स्वागत है! यह एक प्रतिष्ठित संस्थान है जो कक्षा 1 से 12 तक के छात्रों को बेहतरीन शिक्षा और मार्गदर्शन प्रदान करता है। हमारा लक्ष्य प्रत्येक छात्र को उसकी पूरी क्षमता तक पहुँचने में सहायता करना है।</p>
+                
+                <h2>हम क्यों सबसे बेहतर हैं?</h2>
+                <ul>
+                    <li>✅ अनुभवी शिक्षक – हमारे अनुभवी शिक्षक, शर्मा सर (डायरेक्टर) और भोला सर (को-डायरेक्टर), छात्रों की सफलता के लिए समर्पित हैं।</li>
+                    <li>✅ शानदार रिजल्ट – हमारे कक्षा 10th  and 12वीं आर्ट्स के छात्र 400+ अंक प्राप्त कर रहे हैं।</li>
+                    <li>✅ संपूर्ण अध्ययन सामग्री – छात्रों को PYQs, वस्तुनिष्ठ और वर्णनात्मक प्रश्न उपलब्ध कराए जाते हैं।</li>
+                    <li>✅ स्मार्ट लर्निंग तकनीक – हमारी कोचिंग में डिजिटल बोर्ड का उपयोग किया जाता है।</li>
+                    <li>✅ प्रतियोगी परीक्षा की तैयारी – हम नवोदय, BCECE LEET और अन्य प्रतियोगी परीक्षाओं के लिए मार्गदर्शन देते हैं।</li>
+                </ul>
+                
+                <h2>हमारी वेबसाइट पर क्या मिलेगा?</h2>
+                <ul>
+                    <li>📘 PDF नोट्स</li>
+                    <li>🤖 Deep Seek AI के साथ कोई भी सवाल पूछें</li>
+                    <li>📝 मॉडल पेपर</li>
+                    <li>📢 सभी नवीनतम अपडेट</li>
+                </ul>
+                
+                <!-- <div class="contact">
+                    <p>📍 <b>स्थान:</b> पारसौनी खिरोघर</p>
+                    <p>📞 <b>संपर्क करें:</b> 9508008724</p>
+                    <p>📧 <b>ईमेल:</b> <a href="mailto:sunilkumar9508008@gmail.com">sunilkumar9508008@gmail.com</a></p>
+                </div> -->
+            </div>
+        </div>
+    </div>
+    </section>
+ <section id="chat">
+    <button id="chatButton" onclick="toggleChat()">Chat bot with deep DeepSeek </button>
+    <div id="chatContainer">
+        <div class="chat-header">
+            <span>Sunil Boat</span>
+            <button id="minimizeBtn" onclick="toggleChat()">−</button>
+        </div>
+        <div id="chatMessages"></div>
+        <div id="inputGroup">
+            <input type="text" id="userInput" placeholder="Type your message...">
+            <button id="sendBtn" onclick="sendMessage()">Send</button>
+        </div>
+    </div>
+ </section>
+    
+    <section id="contact" class="section">
+        
+        <footer style="background: #222; color: white; padding: 20px 0; text-align: center;">
+            <div>
+                <a href="https://www.youtube.com" target="_blank" style="color: white; margin: 0 10px; font-size: 24px; text-decoration: none;">
+                    <i class="fab fa-youtube"></i> YouTube
+                </a>
+                <a href="https://www.instagram.com" target="_blank" style="color: white; margin: 0 10px; font-size: 24px; text-decoration: none;">
+                    <i class="fab fa-instagram"></i> Instagram
+                </a>
+                <a href="https://www.facebook.com" target="_blank" style="color: white; margin: 0 10px; font-size: 24px; text-decoration: none;">
+                    <i class="fab fa-facebook"></i> Facebook
+                </a>
+                <a href="https://www.twitter.com" target="_blank" style="color: white; margin: 0 10px; font-size: 24px; text-decoration: none;">
+                    <i class="fab fa-x-twitter"></i> Twitter
+                </a>
+                <a href="https://chat.whatsapp.com/CsTZAghEfgQ5LmTQoqDaZi" target="_blank" style="color: white; margin: 0 10px; font-size: 24px; text-decoration: none;">
+                    <i class="fab fa-whatsapp"></i> WhatsApp
+                </a>
+                <a href="https://t.me/smartbytes431" target="_blank" style="color: white; margin: 0 10px; font-size: 24px; text-decoration: none;">
+                    <i class="fab fa-telegram"></i> Telegram
+                </a>
+            </div>
+            <p style="margin-top: 10px; font-size: 14px; text-align: center;">&copy; 2025 Divya Jyoti Coaching Centre. All Rights Reserved : <p style="text-align: center;"><b style="color:#007bff" >Develop By: Sunil Rajak</b></p> .</p>
+        </footer>
+        
+        <!-- Font Awesome CDN -->
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    </section>
+    
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            let navbar = document.getElementById("navbar");
+            window.addEventListener("scroll", function() {
+                if (window.scrollY > 50) {
+                    navbar.style.background = "rgba(51, 51, 51, 0.9)";
+                } else {
+                    navbar.style.background = "#333";
+                }
+            });
+        }
+    );
+    let index = 0;
+const slider = document.querySelector(".slider");
+const slides = document.querySelectorAll(".slide");
+const totalSlides = slides.length;
+
+function showSlide(n) {
+    index = (n + totalSlides) % totalSlides;
+    slider.style.transform = `translateX(-${index * 100}%)`;
+}
+
+function nextSlide() {
+    showSlide(index + 1);
+}
+
+function prevSlide() {
+    showSlide(index - 1);
+}
+
+setInterval(nextSlide, 3000); 
+const OPENROUTER_API_KEY = "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"; 
+        const OPENROUTER_API_URL = "https://openrouter.ai/api/v1/chat/completions";
+        function toggleChat() {
+            const container = document.getElementById('chatContainer');
+            const button = document.getElementById('chatButton');
+            container.style.display = container.style.display === 'none' ? 'flex' : 'none';
+            button.style.display = container.style.display === 'none' ? 'block' : 'none';
+        }
+        function appendMessage(message, isUser) {
+            const chatMessages = document.getElementById('chatMessages');
+            const messageDiv = document.createElement('div');
+            messageDiv.className = `message ${isUser ? 'user-message' : 'bot-message'}`;
+            messageDiv.textContent = message;
+            chatMessages.appendChild(messageDiv);
+            chatMessages.scrollTop = chatMessages.scrollHeight;
+        }
+        async function sendMessage() {
+            const userInput = document.getElementById('userInput');
+            const message = userInput.value.trim();
+            if (!message) return;
+            appendMessage(message, true);
+            userInput.value = '';
+            try {
+                const response = await fetch(OPENROUTER_API_URL, {
+                    method: "POST",
+                    headers: {
+                        "Authorization": `Bearer ${OPENROUTER_API_KEY}`,
+                        "Content-Type": "application/json"
+                    },
+                    body: JSON.stringify({
+                        "model": "deepseek/deepseek-chat:free",
+                        "messages": [{ "role": "user", "content": message }]
+                    })
+                });
+                const data = await response.json();
+                const botResponse = data.choices[0].message.content;
+                appendMessage(botResponse, false);
+            } catch (error) {
+                console.error("Error fetching response from OpenRouter API:", error);
+                appendMessage("Sorry, I encountered an error. Please try again.", false);
+            }
+        }
+        document.getElementById('userInput').addEventListener('keypress', (e) => {
+            if (e.key === 'Enter') sendMessage();
+        });
+    </script>
+</body>
+</html>

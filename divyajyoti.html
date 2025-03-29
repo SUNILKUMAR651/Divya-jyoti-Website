@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Divya Jyoti Coaching Centre</title>
+    <style>
+        * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+    scroll-behavior: smooth;
+}
+body {
+    background-color: #f5f5f5;
+    text-align: center;
+}
+
+/* Navbar */
+nav {
+    background-color: #333;
+    padding: 15px 0;
+    text-align: center;
+    position: fixed;
+    width: 100%;
+    top: 0;
+    left: 0;
+    z-index: 1000;
+}
+nav a {
+    color: white;
+    text-decoration: none;
+    margin: 0 15px;
+    font-size: 18px;
+    font-weight: bold;
+    transition: 0.3s;
+}
+nav a:hover {
+    color: #ffcc00;
+}
+
+/* Image Slider */
+.slider-container {
+    width: 80%;
+    max-width: 800px;
+    overflow: hidden;
+    margin: 100px auto;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+    position: relative;
+}
+.slider {
+    display: flex;
+    transition: transform 1s ease-in-out;
+}
+.slide {
+    min-width: 100%;
+    border-radius: 10px;
+    overflow: hidden;
+}
+.slide img {
+    width: 100%;
+    height: 400px;
+    object-fit: cover;
+}
+.btn {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: rgba(0, 0, 0, 0.5);
+    color: white;
+    border: none;
+    padding: 10px 15px;
+    cursor: pointer;
+    border-radius: 5px;
+    z-index: 100;
+}
+.prev { left: 10px; }
+.next { right: 10px; }
+
+/* Teachers Section */
+.teachers {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    padding: 50px 20px;
+}
+.teacher-card {
+    background: white;
+    border-radius: 10px;
+    padding: 20px;
+    text-align: center;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    width: 220px;
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+.teacher-card:hover {
+    transform: scale(1.05);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
+}
+.teacher-card img {
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 4px solid #333;
+}
+.teacher-card h3 {
+    margin-top: 10px;
+    color: #333;
+}
+
+/* Footer */
+footer {
+    background: #333;
+    color: white;
+    padding: 10px;
+    position: relative;
+    bottom: 0;
+    width: 100%;
+}
+
+    </style>
+</head>
+<body>
+
+    <!-- Navbar -->
+    <nav id="navbar">
+        <a href="#home">Home</a>
+        <a href="#teachers">Teachers</a>
+        <a href="#students">Students</a>
+        <a href="#notes">Notes</a>
+        <a href="#model-paper">Model Paper</a>
+        <a href="#about">About Us</a>
+        <a href="#contact">Contact</a>
+        <a href="login.html">Login</a>
+    </nav>
+
+    <!-- Image Slider -->
+    <div class="slider-container">
+        <div class="slider">
+            <div class="slide"><img src="2017.jpeg" alt="2017 Batch"></div>
+            <div class="slide"><img src="2019-20.jpeg" alt="2019 & 2020 Batch"></div>
+            <div class="slide"><img src="2022.jpeg" alt="2022 Batch"></div>
+            <div class="slide"><img src="kalyani.jpeg" alt="Kalyani 2025"></div>
+        </div>
+        <button class="btn prev" onclick="prevSlide()">&#10094;</button>
+        <button class="btn next" onclick="nextSlide()">&#10095;</button>
+    </div>
+
+    <!-- Home Section -->
+    <section id="home">
+        <header>📚 Divya Jyoti Coaching Centre 📚</header>
+        <div class="container">
+            <h2>सफलता की ओर एक सुनहरा कदम</h2>
+            <p>हम पर्सौनी खिरोधर में स्थित एक प्रतिष्ठित शिक्षण संस्थान हैं, जहाँ कक्षा 1 से 12 तक के छात्रों को उत्कृष्ट शिक्षा प्रदान की जाती है। विशेष रूप से 10वीं और 12वीं (आर्ट्स) के छात्रों को 400+ अंक लाने के लिए मार्गदर्शन दिया जाता है।</p>
+        </div>
+    </section>
+
+    <!-- Teachers Section -->
+    <section id="teachers">
+        <h2>हमारे अनुभवी शिक्षक</h2>
+        <div class="teachers">
+            <div class="teacher-card">
+                <img src="teacher1.jpg" alt="Sharma Sir">
+                <h3>Sharma Sir</h3>
+                <p>Director & Senior Teacher</p>
+            </div>
+            <div class="teacher-card">
+                <img src="teacher2.jpg" alt="Bhola Sir">
+                <h3>Bhola Sir</h3>
+                <p>Co-Director & Expert</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <p>© 2025 Divya Jyoti Coaching Centre | Contact: <a href="mailto:sunilkumar9508008@gmail.com">sunilkumar9508008@gmail.com</a></p>
+    </footer>
+
+    <script >
+        let index = 0;
+const slider = document.querySelector(".slider");
+const slides = document.querySelectorAll(".slide");
+const totalSlides = slides.length;
+
+function showSlide(n) {
+    index = (n + totalSlides) % totalSlides;
+    slider.style.transform = `translateX(-${index * 100}%)`;
+}
+
+function nextSlide() {
+    showSlide(index + 1);
+}
+
+function prevSlide() {
+    showSlide(index - 1);
+}
+
+setInterval(nextSlide, 3000); // Auto-scroll every 3 seconds
+
+    </script>
+</body>
+</html>
